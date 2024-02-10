@@ -31,19 +31,16 @@ export default {
 		env: Env,
 		ctx: ExecutionContext
 	): Promise<Response> {
+		// async returns a 'Promise'
+
 		// ! hard to manage routes
 		// we'll use a library to make our life easy
 		console.log(request);
 
-		if (request.method === "GET") {
-			return Response.json({
-				message: "you hitted get route",
-			});
-		} else {
-			return Response.json({
-				message: "you did not sent a get route",
-			});
-		}
+		// ? Deploy steps
+		// ? npx wrangler login
+		// ? npx wrangler whoami
+		// ? wrangler deploy
 
 		return Response.json({
 			message: "Hello World!",
