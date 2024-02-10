@@ -26,7 +26,32 @@ export interface Env {
 }
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+	async fetch(
+		request: Request,
+		env: Env,
+		ctx: ExecutionContext
+	): Promise<Response> {
+		// ! hard to manage routes
+		// we'll use a library to make our life easy
+		console.log(request);
+
+		if (request.method === "GET") {
+			return Response.json({
+				message: "you hitted get route",
+			});
+		} else {
+			return Response.json({
+				message: "you did not sent a get route",
+			});
+		}
+
+		return Response.json({
+			message: "Hello World!",
+			request: {
+				body: request.body,
+				method: request.method,
+				headers: request.headers,
+			},
+		});
 	},
 };
